@@ -1,0 +1,38 @@
+{
+  "name": "nuxt-solid-theme",
+  "private": true,
+  "type": "module",
+  "version": "0.0.1",
+  "main": "./nuxt.config.js",
+  "scripts": {
+    "build": "nuxt build .playground",
+    "dev": "nuxt dev .playground",
+    "dev:prepare": "nuxt prepare .playground",
+    "generate": "nuxt generate .playground",
+    "preview": "nuxt preview .playground",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "dependencies": {
+    "@iconify-json/lucide": "^1.2.28",
+    "@nuxt/ui": "3.0.0-beta.2",
+    "@vueuse/nuxt": "12.7.0",
+    "nuxt": "^3.15.4"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^1.1.0",
+    "eslint": "^9.21.0",
+    "typescript": "^5.8.2"
+  },
+  "overrides": {
+    "tailwindcss": "4.0.7",
+    "@tailwindcss/postcss": "4.0.7",
+    "@tailwindcss/vite": "4.0.7"
+  },
+  "resolutions": {
+    "tailwindcss": "4.0.7",
+    "@tailwindcss/postcss": "4.0.7",
+    "@tailwindcss/vite": "4.0.7"
+  },
+  "packageManager": "pnpm@10.6.1+sha512.40ee09af407fa9fbb5fbfb8e1cb40fbb74c0af0c3e10e9224d7b53c7658528615b2c92450e74cfad91e3a2dcafe3ce4050d80bda71d757756d2ce2b66213e9a3"
+}

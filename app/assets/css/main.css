@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+:root {
+    --ui-sidebar-expanded-width: 16rem;
+    --ui-sidebar-collapse-width: 4rem;
+}
