@@ -28,7 +28,7 @@ const buttonPosition = computed(() =>
 )
 
 const groupedItems = computed(() => ({
-  start: items.value.filter(item => (item.position || 'start') === 'start'),
+  start: items.value.filter(item => item.position === 'start'),
   end: items.value.filter(item => item.position === 'end'),
 }))
 
