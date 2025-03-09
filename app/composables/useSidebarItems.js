@@ -17,9 +17,11 @@ export function useSidebarItems() {
   }
 
   function processItem(item) {
-    const newItem = { ...item }
+    if (!item.label && !item.icon) {
+      return null
+    }
 
-    newItem.position = item.position || 'start'
+    const newItem = { ...item, position: item.position || 'start' }
 
     if (item.label) {
       newItem.label = translateLabel(item.label)
@@ -29,8 +31,13 @@ export function useSidebarItems() {
       newItem.to = localizePath(item.to)
     }
 
-    if (Array.isArray(item.children) && item.children.length > 0) {
-      newItem.children = item.children.map(child => processItem(child))
+    if (Array.isArray(item.children)) {
+      newItem.children = item.children.map(processItem).filter(Boolean)
+
+      // Si después de procesar, no quedan children y tampoco tiene un `to` o `href`, eliminamos el elemento
+      // if (!newItem.children.length && !newItem.to && !newItem.href) {
+      //   return null
+      // }
     }
 
     return newItem
@@ -38,6 +45,7 @@ export function useSidebarItems() {
 
   return computed(() => {
     const baseItems = appConfig?.sidebar?.navigation?.items || []
-    return baseItems.map(item => processItem(item))
+
+    return baseItems.map(processItem).filter(Boolean)
   })
 }
